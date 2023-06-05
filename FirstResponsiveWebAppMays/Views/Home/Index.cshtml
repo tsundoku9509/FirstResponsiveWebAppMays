@@ -1,0 +1,37 @@
+﻿@{
+    @model FirstResponsiveWebAppMays.Models.AgeThisYearModel
+    ViewData["Title"] = "Home Page";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<h1>Dec. 31st 2023 and Today Age Calculator</h1>
+<form asp-action="Index" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Year">Birth Year:</label>
+        <input asp-for="Year" />
+    </div>
+    <div>
+        <label>Age as of Dec. 31st 2023.</label>
+        <input value="@ViewBag.Dec.ToString()" readonly />
+        <label>Age as of today.</label>
+        <input value="@ViewBag.Current.ToString()" readonly />
+    </div>
+    <button type="submit">Submit</button>
+    <a asp-action="Index">Clear</a>
+</form>
+</body>
+</html>
+
